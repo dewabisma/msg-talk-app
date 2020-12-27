@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
     io.to(user.room).emit('join room', user.room, getUsersList(user.room));
 
     socket.emit('message', formatMessage(adminName, 'welcome to the club!'));
-    socket.emit('message', formatMessage(adminName, 'Silahkan berbelanja!'));
+    socket.emit('message', formatMessage(adminName, 'Silahkan berbincang!'));
 
     socket.to(user.room).broadcast.emit('message', formatMessage(adminName, `${user.username} has joined the room`));
   });

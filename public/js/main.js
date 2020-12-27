@@ -103,15 +103,16 @@ chatForm.addEventListener('submit', (event) => {
 });
 
 messageInput.addEventListener('keydown', (event) => {
-  const text = event.target.value.trim();
+  setTimeout(() => {
+    const text = event.target.value.trim();
+    console.log(text);
 
-  console.log(messageInput.value, event.target.value);
-
-  if (text) {
-    socket.emit('typing');
-  } else {
-    socket.emit('finished typing');
-  }
+    if (text !== '') {
+      socket.emit('typing');
+    } else {
+      socket.emit('finished typing');
+    }
+  }, 100);
 });
 
 function sendMessage(event) {
